@@ -1,0 +1,242 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+
+
+body {
+
+    background-color: black;
+
+}
+
+
+.main {
+    width: 600px;
+    height: 450px;
+    background-color: aquamarine;
+    margin: 0 auto;
+    margin-top: 80px; /*ook hier commentaar*/
+}
+
+
+.container {
+
+    background-color: white;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+.top-bar {
+
+    width: 100%;
+
+    height: 100px;
+
+    background-color: rgb(63, 60, 60);
+
+}
+
+
+.the-button {
+
+    width: 100%;
+
+    height: 100px;
+
+    margin-right: 650px;
+
+}
+
+
+
+
+.dicephoto {
+
+    height: 200px;
+
+    width: 300px;
+
+    object-fit: scale-down;
+
+    float: left;
+
+    margin: auto 390px;
+
+    padding: 50px;
+
+}
+
+
+.photodrake {
+
+    height: 380px;
+
+    width: 300px;
+
+    float: right;
+
+    padding: 1px;
+
+    margin-top: 40px;
+
+}
+
+
+.photogus {
+
+    height: 380px;
+
+    width: 300px;
+
+    float: left;
+
+    margin-top: 40px;
+
+}
+
+
+.photovs {
+
+    height: 320px;
+
+    width: 320px;
+
+    padding: 24px;
+
+    margin-left: 290px;
+
+
+}
+
+
+.you {
+
+    color: white;
+
+    margin-left: 80px;
+
+
+}
+
+
+.bank {
+
+    color: white;
+
+    margin-left: 1350px;
+
+}
+
+
+
+
+td {
+
+
+    font-family: verdana;
+
+
+    font-size: 25px;
+
+
+}
+
+
+
+
+.button {
+
+    background-color: #04AA6D;
+
+    border: none;
+
+    color: white;
+
+    padding: 20px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 16px;
+
+    margin: 4px 2px;
+
+    height: 150px;
+
+    width: 150px;
+
+    margin: auto;
+
+    margin-left: 225px;
+
+    margin-top: 100px;
+
+    cursor: pointer;
+
+    border-radius: 30px;
+
+
+}
+
+
+button:active {
+
+    background: red;
+
+    border: 1px solid black;
+
+    padding: 10px 30px;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+
+}
+
+
+button:focus {
+
+    background: red;
+
+    outline: none;
+
+
+}
+
+
+.title {
+
+    text-align: center;
+
+    color: white;
+
+    font-family: sans-serif;
+
+    font-size: 55px;
+
+
+
+
+}
+
+.score {
+    color: white;
+    font-size: 28pt;
+    font-family: sans-serif;
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 50px;
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+
+    //Start credits en credits van de speler.
+    let credits = 0;
+
+    let beginnerCredits = (credits + 10);
+    console.log(credits)
+
+    //Dit is voor de HTML score counter
+    function Score() {
+      let score = credits;
+      document.getElementById("myText").innerHTML = score; //Mytext wordt later gebruikt als variabele in html
+    }
+
+    //De function knop.
+    function go() {
+      alert("Welkom bij het spel 'Hoger of lager'.")
+      alert("U moet boven de 18 jaar zijn om dit spel te spelen.")
+      const age = confirm("Bent u ouder dan 18 jaar?")//<--------- Vraagt of je oud genoeg bent of niet, zo ja dan kan je verder. Zo nee dan kan je niet verder en wordt het spel gestopt wheelie.
+
+
+
+
+
+
+
+      //De if - statement is aan het checken of je bij confirm ja of nee hebt gedrukt, als je ja drukt gaat het spel door, zo nee dan sluit het spel af met een bericht.
+      if (age == true) {
+        let userName = prompt(`Je bent oud genoeg! Vul uw gebruikersnaam in.`);
+        if (userName == "")//<------- Hier wordt gechecked of je iets hebt ingevuld als gebruikersnaam.
+        {
+          userName = 'Guest';//<------ Dit stuk code maakt je naam guest als je niks als naam hebt ingevuld
+          alert('U heeft geen naam ingevuld, u gaat verder als "Guest".')
+        }
+
+
+
+
+
+
+
+
+        //Hier krijg je de start credits en je krijgt een bericht met welkom erop.
+        (credits = beginnerCredits)// Hier staat eigenlijk 0 + 10 omdat helemaal boven staat een let (beginnerCredits) die een som doet. Als je: "credits = beginnerCredits" is het eigenlijk 
+        alert(`Welkom ${userName}! U heeft 10 gratis credits gekregen.`);
+        alert(`Om het eind credits links boven te kunnen zien moet het spel gestopt zijn.`)
+
+        //Hier wordt het spel uitgelegd.
+        alert(`U begint met 10 credits en de bank gooit twee dobbelstenen tussen de 1-6. U wordt gevraagd of jouw dobbelstenen hoger of lager gaan gooien dan de bank. Gokt u goed dan heeft u gewonnen, Winnen is +1 credit en verliezen is -1 credit en gelijkspel trekt niks af. Succes!`);
+
+        //Hier wordt je credits gechecked en als je niet genoeg credits hebt laat het spel je weten met de alert in deze if dat je niet genoeg credits hebt.
+        if (credits < 1) {
+          alert('U heeft niet genoeg credits om het spel te spelen.');
+        }
+
+        //Hier begint een loop en elke keer als de speler klaar is met zijn ronde mag de speler opnieuw starten en dan begint de game vanaf hieronder. 
+        while (credits > 0) {
+          Score() //Hier wordt de HTML score counter geactiveerd
+
+          function getRandomIntInclusive(min, max) { //Hier begint de random dobbelstenen generator
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+          }
+          let x = getRandomIntInclusive(1, 6);
+          let y = getRandomIntInclusive(1, 6);
+          let z = (x + y);
+          let playerX = getRandomIntInclusive(1, 6);
+          let playerY = getRandomIntInclusive(1, 6);
+          let playerZ = (playerX + playerY);
+
+          let creditsWin = (credits + 1);
+          let creditsLose = (credits - 1);
+          let leaderboard = (credits)
+          console.log(credits)
+
+
+          let askUser = prompt(`${userName} heeft ${credits} credits. 
+       
+De bank heeft de dobbelstenen: ${x} en ${y} bij elkaar ${z}. 
+
+Gooit ${userName} hoger (H) of lager (L) dan ${z}?`); //Hier laat de bank weten wat de bank heeft gegooid en laat je hoger of lager kiezen.
+
+
+
+
+          if (askUser == 'H') { //Hier selecteerd javascipt dat je hoger hebt gekozen.
+
+            if (playerZ > z) {
+              alert(`${userName} heeft ${playerX} en ${playerY} bij elkaar ${playerZ} gegooid. 
+
+De bank had ${x} en ${y} bij elkaar ${z} gegooid.
+
+${userName} heeft gewonnen en 1 credit verdient.`); (credits = creditsWin)
+            }
+
+
+
+            if (playerZ < z) {
+              alert(`${userName} heeft ${playerX} en ${playerY} bij elkaar ${playerZ} gegooid.
+
+De bank had ${x} en ${y} bij elkaar ${z} gegooid.
+
+${userName} heeft 1 credit verloren.`); (credits = creditsLose)
+            }
+            if (playerZ == z) {
+              alert(`${userName} heeft ${playerX} en ${playerY} bij elkaar ${playerZ} gegooid.
+
+De bank had ${x} en ${y} bij elkaar ${z} gegooid.
+
+ ${userName} en de bank hebben gelijkspel. Er zijn geen credits afgetrokken.`)
+            }
+          }
+
+
+
+          if (askUser == 'L') { //Hier selecteerd javascript dat je lager hebt gekekozen
+            if (playerZ < z) {
+              alert(`${userName} heeft ${playerX} en ${playerY} bij elkaar ${playerZ} gegooid.
+
+De bank had ${x} en ${y} bij elkaar ${z} gegooid.
+
+${userName} heeft gewonnen en 1 credit verdient.`); (credits = creditsWin)
+            }
+            if (playerZ > z) {
+              alert(`${userName} heeft ${playerX} en ${playerY} bij elkaar ${playerZ} gegooid.
+
+De bank had ${x} en ${y} bij elkaar ${z} gegooid.
+
+${userName} heeft 1 credit verloren.`); (credits = creditsLose)
+            }
+            if (playerZ == z) {
+              alert(`${userName} heeft ${playerX} en ${playerY} bij elkaar ${playerZ} gegooid.
+
+De bank had ${x} en ${y} bij elkaar ${z} gegooid.
+
+${userName} en de bank hebben gelijkspel. Er zijn geen credits afgetrokken.`)
+            }
+
+          }
+
+
+
+
+          const continueGame = confirm("Wilt u verder spelen?") //Hier wordt gevraagd of de game moet stoppen of verdergaan
+
+          if (continueGame == true) {
+            alert("Het spel wordt herstart"); //Als het true is dan wordt het spel herstart en wordt er geen break gebruikt
+          }
+
+          if (continueGame == false) {
+            alert("Het spel wordt gestopt."); //Als het false is dan wordt het spel niet herstart en wordt een break gebruikt 
+            break; //Een is een command die je gebruikt om een loop te stoppen.
+          }
+
+
+
+          Score() //Hier wordt Score opnieuw geactiveerd
+        }
+
+
+
+
+      }
+
+      if (age == false) [ //Als je niet oud genoeg bent wordt het spel ook gestopt.
+        alert(`Je bent niet oud genoeg.`)
+      ]
+
+    }
+  </script>
+  <title>Document</title>
+</head>
+<!-- Hier wordt de function score uitgevoerd -->
+
+<body onload="Score()">
+
+  <!-- Hier is de myText variabele -->
+  <p class="score">Credits: <span id="myText"></span></p>
+
+  <div class="main">
+
+    <div class="container">
+
+      <!-- top bar -->
+
+      <div class="top-bar">
+
+        <h1 class="title">Hoger of Lager</h1>
+
+      </div>
+
+      <div class="container-button">
+
+        <!-- dit is de knop die het hele spel en de go functie activeerd -->
+        <button class="button" onclick="go()" id="F2C">Start</button>
+
+      </div>
+
+      <div class="photo">
+
+        <p> <img class="dicephoto" src="1200px-2-Dice-Icon.svg.png"></p>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
+  <h1 class="you">You</h1>
+
+  <h1 class="bank">Bank</h1>
+
+  <img class="photodrake" src="Drake-Candle-Release--e1620378729324.jpg">
+
+  <img class="photogus" src="BCS_S3_GusFringe.webp">
+
+  <img class="photovs" src="Versus-PNG-Clipart.png">
+
+  <script type="application/javascript" src="/js/main.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+
+</body>
+
+</html>
